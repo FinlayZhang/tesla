@@ -1,0 +1,10 @@
+1.src是开发文件夹,东西不参与上线 
+2.上线的阶段的代码 通过动态编译而来,dist是自动生成的
+3.外面的config是webpack的配置,里面的是node的开发配置
+4.gulp编译node快~
+5.开发的src写es6文件,上线的这个配置文件,不支持的语法不要写
+6.编译node直接用一个es2015-moudles
+7.app.js不能随便往里写业务逻辑,核心！启动所有的项目 
+8.htmlAfterWebpackPlugin.js是自定义的webpack插件,将css和js放到指定的head和body中
+9.CopyWebpackPlugin将src里的前端文件拷贝到dist中,可以用for循环拷贝
+10.测试之后一定要记得退出！

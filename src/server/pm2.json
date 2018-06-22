@@ -1,0 +1,10 @@
+{
+    "name" : "tesla",
+    //max_memory_restart: "300M",//设置node单个进程可占用最大的内存，如果内存使用率超过300M，pm2自动重启该进程
+    "script" : "app.js",
+    "out_file" : "logs/pm2/out.log",
+    "error_file" : "logs/pm2/error.log",
+    "instances" : "2",
+    "exec_mode" : "cluster",
+    "watch":true
+}

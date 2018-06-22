@@ -1,0 +1,39 @@
+:root {
+    --headerHeight: 70px;
+}
+
+.widgets-ydbanner {
+    & .h-150 {
+        height: var(--headerHeight);
+    }
+    & .header-content {
+        line-height: var(--headerHeight);
+        color: #8d9095;
+        box-shadow: 0 0 10px #000;
+    }
+    & .header-content__logo {
+        float: left;
+        margin: 11px 25px 11px 0px;
+    }
+    & .header-content__nav ul li{
+        float: left;
+            margin-right: 10px;
+        list-style: none;
+    }
+    & .header-content__nav-active{
+        text-decoration:underline;
+    }
+    & .header-content__nav ul li a {
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 10px;
+    }
+    & .header-content__logo h1 a {
+        text-indent: -9999px;
+        display: inline-block;
+        width: 157px;
+        height: 48px;
+        /*background: url(./images/logo.png) no-repeat;*/
+        background-size: 157px 48px;
+    }
+}
