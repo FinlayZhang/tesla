@@ -8,7 +8,12 @@
 
 tesla使用koa2+react+webpack4+gulp,以及npm集成管理工具,登录 [DIY(http://diy.liuxue.com)](http://diy.liuxue.com) ,体验功能.
 
+## 注意
+
+代码要写注释！！！
+
 ## 目录结构
+
 ```
 tesla/
 ├── config  //  webpack插件，开发，生产配置文件
@@ -44,9 +49,14 @@ npm run start
 
 ## 测试
 
-### liuxueapi
-* /liuxueapi/cache/:type  清理缓存
-* /liuxueapi/site/abroadPlan
-* /liuxueapi/util/phoneCode
+### server目录说明
 
-* /liuxueabroadPlan
+```
+server使用AOP思想(DI)
+config为node配置文件，包括dev和prod
+controllers路由模块
+middlewares自定义中间件(错误处理)
+services(服务，可以理解为modal层)
+app.js核心文件，server的入口，不要写逻辑
+pm2.json热启动工具
+```
