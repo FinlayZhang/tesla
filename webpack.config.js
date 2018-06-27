@@ -10,7 +10,7 @@ const files = glob.sync("./src/webapp/views/**/*.entry.js");
 const _mode = argv.mode || "development";
 const _modeflag = (_mode == "production" ? true : false);
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
-// const conf = require('./config/happyWebpack');
+const conf = require('./config/happyWebpack');
 let _entry = {};
 let _plugins = [];
 for (let item of files) {
@@ -39,68 +39,21 @@ _entry.vendor = ["jquery","lodash"];
 let webpackConfig = {
     entry: _entry,
     module: {
-        //编译太长记得把happyWebpack引入进来 Webpack5将取代这个插件
-        /*{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: 'happypack/loader?id=babel',
-        }, */
-        // 各种loader
+        //编译太长记得把happyWebpack引入进来,Webpack5将取代这个插件
         rules: [{
             test: /\.(png|jpg|gif|eot|woff|woff2|ttf|svg|otf)$/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: _mode == "production" ? "images/[name].[hash:5].[ext]" : "images/[name].[ext]"
-                }
-            }]
+            exclude: /node_modules/,
+            loader: ['happypack/loader?id=file'],
         },{
             test: /\.css$/,
             exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            minimize: _modeflag
-                        }
-                    },
-                    'postcss-loader'
-                ]
+            loader: ExtractTextPlugin.extract({
+                use: ['happypack/loader?id=css'],
             })
         },{
-            test:/\.less$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            minimize: _modeflag
-                        }
-                    },
-                    'postcss-loader', 'less-loader'
-                ]
-            })
-        },{
-            test: /\.jsx?$/,
-            use: {
-                loader: 'babel-loader',
-                query: { //同时可以把babel配置写到根目录下的.babelrc中
-                  presets: ['env', 'stage-0'] // env转换es6 stage-0转es7
-                }
-            }
-        },{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: [
-                "babel-loader",
-                "eslint-loader",
-            ]
+            loader: ['happypack/loader?id=babel'],
         }]
     },
     optimization: {
@@ -144,4 +97,4 @@ let webpackConfig = {
         extensions: [".js", ".css"]
     }
 };
-module.exports = merge(webpackConfig, _mergeConfig);
+module.exports = merge(webpackConfig, _mergeConfig,conf);
