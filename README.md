@@ -6,7 +6,7 @@
 
 ## 介绍
 
-tesla使用koa2+react+webpack4+gulp,以及npm集成管理工具,登录 [DIY(http://diy.liuxue.com)](http://diy.liuxue.com) ,体验功能.
+tesla使用koa2+vue+webpack4+gulp,以及npm集成管理工具,登录 [DIY(http://diy.liuxue.com)](http://diy.liuxue.com) ,体验功能.
 
 ## 注意
 
@@ -29,6 +29,7 @@ tesla/
 ### 本地运行说明
 
 ```
+启动三个窗口吧
 node版本>v7
 npm install
 npm run webpack
