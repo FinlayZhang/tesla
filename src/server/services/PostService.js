@@ -1,3 +1,4 @@
+import safeRequest from '../libs/safeRequest';
 /**
  * @fileOverview 实现Index 数据模型
  * @author 1009284544@qq.com
@@ -12,15 +13,18 @@ class PostService{
      * @constructor
      * @param {string} app koa2的上下文环境
      */
-    constructor() {}
+    constructor(ctx) {
+        this.ctx = ctx;
+    }
         /**
      * 获取具体的API接口数据
      * @example
      * return new Promise
-     * getForm()
+     * postRequest()
      */
-    find(){
-        return "我是6666666666666";
+    postRequest(data){
+        const safeRequestIns = new safeRequest(this.ctx,'http://localhost/index.php',data);
+        return safeRequestIns.request();
     }
 }
 export default PostService;
