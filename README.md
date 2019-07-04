@@ -1,12 +1,6 @@
-# tesla
-
-## 配一张牛逼的图
-
-![tesla!!!](https://o4j9g80u3.qnssl.com/public/assets/images/tesla.png)
-
 ## 介绍
 
-tesla使用koa2+vue+webpack4+gulp,以及npm集成管理工具,登录 [DIY(http://diy.liuxue.com)](http://diy.liuxue.com) ,体验功能.
+tesla使用koa2+vue+webpack4+gulp,以及npm集成管理工具.
 
 ## 注意
 
